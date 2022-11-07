@@ -1,4 +1,3 @@
-#Login
 login={}
 ct=0
 
@@ -10,21 +9,22 @@ while True:
     print()
     print("Redirecting.....")
 
-    if ch==2:
-        username=input("Enter your username")
-        if username not in login:
-            print("Username not found")
-            break
-        while True:
-            if ct<5:
-                passwd=input("Enter your password")
-                if login[username]!=passwd:
-                    print("Password doesn't match")
-                    ct+=1
-                    break
-        login[username]=passwd
-        print("You have logged in successfully!")
     if ch==1:
+        username=input("Enter your username")
+        while True:
+            if username not in login:
+                print("Username not found")
+                break
+            else:
+                if ct<5:
+                    passwd=input("Enter your password")
+                    if login[username]!=passwd:
+                        print("Password doesn't match")
+                        ct+=1
+                       
+            login[username]=passwd
+            print("You have logged in successfully!")
+    elif ch==2:
         user=input("Enter your username")
         while True:
             for i in login:
