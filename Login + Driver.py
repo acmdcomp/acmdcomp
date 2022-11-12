@@ -49,7 +49,7 @@ while True:
         while ct<5:
             print("If you are logging in as an ambulance service provider, please enter 1.")
             print("If you are logging in as a client/victim, please enter 2.")
-            prof = input("Please enter your choice. ")
+            prof = int(input("Please enter your choice. "))
             if prof==1:
                 login['profession']='driver'        #driver interface
                 flag='driver'
