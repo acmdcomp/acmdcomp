@@ -105,7 +105,21 @@ print("On this platform, you will be able to view the required data for contacti
     purposes.")
 
 if login[username]['profession']=='driver':
-
+    while True:
+        print("Enter 1 to input your current location to provide services.")
+        print("Enter 2 to view/update your profile on ACMD.")
+        print("Enter 3 to view the main menu again.")
+        print("Enter 4 to exit ACMD")
+        chasdr=int(input("Please enter your choice "))
+        if chasdr==1:
+            pass
+        elif chasdr==2:
+            #MANYA-MYSQL
+            pass
+        elif chasdr==3:
+            continue
+        elif chasdr==4:
+            break
 
 
 
