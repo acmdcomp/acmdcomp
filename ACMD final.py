@@ -1,3 +1,7 @@
+
+Edited program in acmd final
+
+
 import mysql.connector
 db=mysql.connector.connect(host='localhost', user='root', passwd='sql123')
 m=db.cursor()
