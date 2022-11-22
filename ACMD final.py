@@ -1,7 +1,3 @@
-
-Edited program in acmd final
-
-
 import mysql.connector
 db=mysql.connector.connect(host='localhost', user='root', passwd='sql123')
 m=db.cursor()
@@ -50,17 +46,20 @@ if ud.lower()=='u':
             fdc=input('Enter your family doctor\'s contact number ')
             m.execute("insert into users values (%s,%s,%s,%s,%s,%s,NULL)",(nm, ag,g,md,fd,fdc))
             print('Your profile has been created successfully')
+            print()
 
         if ch==2:
             print('''1. Update a category
-    2. Delete a value
-    3. Delete your profile''')
-            if ch==1:
+2. Delete a value
+3. Delete your profile''')
+            chh=int(input('Enter your choice '))
+            if chh==1:
                 while True:
-                    nm=input('Enter your name')
+                    nm=input('Enter your name ')
                     change=input('Enter the name of the category for which you want to change the information- name, age, gender, medical history, family doctor, family doctor contact number ')
                     if change.lower()!='name' and change.lower()!='age'and change.lower()!='gender'and change.lower()!='medical history'and change.lower()!='family doctor'and change.lower()!='family doctor contact number':
                         print('Invalid category name ')
+                        print()
                     else:
                         break
                 if change=='medical history':
@@ -69,16 +68,19 @@ if ud.lower()=='u':
                         change= 'Family_doctor'
                 elif change=='family doctor contact number':
                     change='FD_contactinfo'
-                up=input('Enter the updated information')
-                m.execute('update users set change=%s where name=%s',(up,nm))
+                up=input('Enter the updated information ')
+### check from here. Field name has to be given separately.
+                m.execute('update users set %s=%s where name=%s',(change,up,nm))
                 print('Your information has been updated successfully ')
-            if ch==2:
+                print()
+            if chh==2:
                 nm=input('Enter your name ')
                 change=input('Enter the name of the category for which you want to delete the information- name, age, gender, medical history, family doctor, family doctor contact number ')
                 if change.lower()!='name' and change.lower()!='age'and change.lower()!='gender'and change.lower()!='medical history'and change.lower()!='family doctor'and change.lower()!='family doctor contact number':
-                        print('Invalid category name ')
-                    else:
-                        break
+                    print('Invalid category name ')
+                    print()
+                else:
+                    break
                 if change=='medical history':
                         change='Medical_history'
                 elif change=='family doctor':
@@ -87,12 +89,13 @@ if ud.lower()=='u':
                     change='FD_contactinfo'
                 m.execute('update users set %s=NULL where name=%s',(change,nm))
                 print('The data has been deleted successfully.')
-            if ch==3:
+            if chh==3:
                 nm=input('Enter your name ')
                 m.execute('delete from users where name=%s',nm)
                 print('Your profile has been deleted successfully')
-       if ch==3:
-        break
+                print()
+        if ch==3:
+               break
 
 if ud.lower()=='d':
     while True:
@@ -111,12 +114,15 @@ if ud.lower()=='d':
             me=input('Enter the medical equipment available in the ambulance ')
             lh=input('Enter the name of the hospital to which you are linked ')
             m.execute("insert into users values (%s,%s,%s,NULL,%s,%s)",(nm,ag,g,me,lh))
+            print('Your profile has been created successfully')
+            print()
 
         if ch==2:
             print('''1. Update a category
-    2. Delete a value
-    3. Delete your profile''')
-            if ch==1:
+2. Delete a value
+3. Delete your profile''')
+            chh=int(input('Enter your choice '))
+            if chh==1:
                 while True:
                     nm=input('Enter your name')
                     change=input('Enter the name of the category for which you want to change the information- name, age, gender,medical equipment available,linked hospital ')
@@ -131,11 +137,13 @@ if ud.lower()=='d':
                 up=input('Enter the updated information')
                 m.execute('update users set change=%s where name=%s',(up,nm))
                 print('Your information has been updated successfully ')
-            if ch==2:
+                print()
+            if chh==2:
                 nm=input('Enter your name')
                 change=input('Enter the name of the category for which you want to delete the information- name, age, gender,medical equipment available,linked hospital ')
                 if change.lower()!='name' and change.lower()!='age'and change.lower()!='gender'and change.lower()!='medical equipment available' and change.lower()!='linked hospital':
                     print('Invalid category name ')
+                    print()
                 else:
                     break
                 if change=='medical equipment':
@@ -144,15 +152,12 @@ if ud.lower()=='d':
                     change= 'LHospital'
                 m.execute('update drivers set %s=NULL where name=%s',(change,nm))
                 print('The data has been deleted successfully.')
-            if ch==3:
+                print()
+            if chh==3:
                 nm=input('Enter your name ')
                 m.execute('delete from drivers where name=%s',nm)
                 print('Your profile has been deleted successfully')
-                 
-       if ch==3:
-        break
+                print()
 
-
-
-
-
+        if ch==3:
+            break
