@@ -1,0 +1,10 @@
+create database acmd;
+use acmd;
+create table users (Name varchar(25), Age int, Gender varchar(10), Medical_history varchar(100), Family_doctor varchar(25), FD_contactinfo varchar(20), current_disease varchar(25)); 
+insert into users values('Ram', 42,'M','diabetes', 'Anuj',' 9884558763', 'severe leg pain');
+
+insert into users values('Sundar', 22,'M','NA', 'Anuj',' 9884545632',);
+insert into users values('Manish', 92,'M', 'cataract', 'Kajal','9924356178')
+
+insert into users values('Kavitha', 67M','diabetes', 'Anuj',' 9884558763', 'severe leg pain');
+insert into users values('Geetha', 35,'M','diabetes', 'Anuj',' 9884558763', 'severe leg pain');
