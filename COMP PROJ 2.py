@@ -6,8 +6,10 @@ import csv
 
 login={}
 '''login={username:[name, password, profession, inbox]}
-newuser=[name, password, profession, inbox]'''
-inbox=[]
+newuser=[name, password, profession, inbox]
+inbox={sender's name: message}'''
+inbox={}
+
 newuser=[]
 ct=0
 
@@ -307,21 +309,24 @@ if login[username][1]=='driver':
             print("Your inbox has", len(inbox), "messages from clients in your location.")
             readch=input("Do you wish to view these messages? Press Y or N ")
             if readch.lower()=='y':
-                ctmsg=0
                 for i in login:
-                    ctmsg+=1
-                    print(ctmsg, i)
+                    print(login[i][3])
+                    
             profilech=input("Do you wish to contact any of the above clients? Press Y or N ")
             if profilech.lower=='y':
-                contact=int(input("Enter the message number you want to pick up "))
-                #the linked variable from user will be used here to show sql profile information of THAT user
-                messagech=input("Do you wish to enter a costumised message for the client? Press Y or N ")
-                if messagech=='y':
-                    message=input("Please enter your message to be sent to the driver: ")
-                elif messagech=='n':
-                    message="The requested driver has been assigned for emergency pick up at the earliest."
-                inbox.append(message)
-            print("You have successfully been assigned the client in your location. Ensure immediate pickup with required medical equiment.")
+                cname=input("Enter the name of the client you wish to contact ")
+                for i in login:
+                    if cname.lower()==login[i][0]:
+                        #show sql profile information of THAT user
+                        messagech=input("Do you wish to enter a costumised message for the client? Press Y or N ")
+                        if messagech=='y':
+                            message=input("Please enter your message to be sent to the driver: ")
+                        elif messagech=='n':
+                            message="The requested driver has been assigned for emergency pick up at the earliest."
+                        for i in login:
+                            if i[0]==cname:
+                                login[i][3][name]=message
+                    print("You have successfully been assigned the client in your location. Ensure immediate pickup with required medical equiment.")
                     
 
         elif chasdr==5:
@@ -378,16 +383,22 @@ if login[username][1]=='client':
                     contact=input("Do you wish to proceed to contact the driver? Press Y or N ")
                     if contact.lower=='y':
                         #RIYA SOUND INPUT
-                        from audioplayer import AudioPlayer
+##                        from audioplayer import AudioPlayer
                         # "D:\Class 12 2022-23 Riya\ACMD\phone-calling-1.mp3"
-                        x = AudioPlayer(r"D:/Class 12 2022-23 Riya/ACMD/phone-calling-1.mp3")
-                        x.play(block=True)
+##                        x = AudioPlayer(r"D:/Class 12 2022-23 Riya/ACMD/phone-calling-1.mp3")
+##                        x.play(block=True)
+                        
+                        
                         messagech=input("Do you wish to enter a costumised message for the driver? Press Y or N ")
                         if messagech=='y':
+                            
                             message=input("Please enter your message to be sent to the driver: ")
                         elif messagech=='n':
-                            message="You have received a client request. They are in location -", location, "and here are their contact details:"   
-                        inbox.append(message)
+                            message="You have received a client request. They are in location -", location
+                            #info from sql
+                        for i in login:
+                            if i[0]==dname:
+                                login[i][3][name]=message
                         #make a linking variable so that the driver can see who sent the message
                     print("You have successfully contacted the driver.")
 
