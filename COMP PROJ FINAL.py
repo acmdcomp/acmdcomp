@@ -177,7 +177,9 @@ print("On this platform, you will be able to view the required data for contacti
 locfile=open("Location1.csv",'w', newline='')
 writer=csv.writer(locfile)
 head=['Driver Name', 'Location']
+samplelist=[['Ram', 'Indiranagar'],['Vishal','CV Raman nagar'],['Atul','Koramangala'],['Shourya','Whitefield'],['Kiran','Old Airport Road']]
 writer.writerow(head)
+writer.writerow(samplelist)
 locfile.close()
 
 locfile=open("Location2.csv",'w', newline='')
