@@ -179,7 +179,7 @@ writer=csv.writer(locfile)
 head=['Driver Name', 'Location']
 samplelist=[['Ram', 'Indiranagar'],['Vishal','CV Raman nagar'],['Atul','Koramangala'],['Shourya','Whitefield'],['Kiran','Old Airport Road']]
 writer.writerow(head)
-writer.writerow(samplelist)
+writer.writerows(samplelist)
 locfile.close()
 
 locfile=open("Location2.csv",'w', newline='')
