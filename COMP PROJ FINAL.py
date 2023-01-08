@@ -11,34 +11,37 @@ inbox=[]
 newuser=[]
 ct=0
 
-
-#LOGIN
-while True:
-    print("Hello! Welcome to the ACMD Database ")
-    print("Enter 1 if you are a new user. ")
-    print("Enter 2 if you are an existing user. ")
-    ch=int(input())
-    print()
-
-    #new user creation-done
-    if ch==1:
+def login:
     
-        while True:
-            username=input("Create your username ")
-            if username in login:
-                print()
-                print("Sorry this username is already taken. Try again")
-                continue
-            else:
-                login[username]=newuser
-                break
-        print()        
+    #LOGIN
+    while True:
+        print("Hello! Welcome to the ACMD Database ")
+        print("Enter 1 if you are a new user. ")
+        print("Enter 2 if you are an existing user. ")
+        ch=int(input())
+        print()
+
+        #new user creation-done
+        if ch==1:
+
+            while True:
+                username=input("Create your username ")
+                if username in login:
+                    print()
+                    print("Sorry this username is already taken. Try again")
+                    continue
+                else:
+                    login[username]=newuser
+                    break
+            print()        
         
+login()
 
         '''
         SQL PROFILE CREATION
         '''
-        
+def sqlcreation:
+    
         import mysql.connector
         db=mysql.connector.connect(host='localhost', user='root', passwd='sql123', autocommit=True)
         m=db.cursor()
@@ -51,7 +54,13 @@ while True:
         #Users table
         m.execute('drop table if exists users')
         m.execute('create table users (Name varchar(25), Age int, Gender varchar(10), Medical_history varchar(100), Family_doctor varchar(25), FD_contactinfo varchar(20), current_disease varchar(25))')
+        m.execute("insert into users values('Ram', 42,'M','diabetes', 'Anuj','9884558763', 'severe leg pain')")
+        m.execute("insert into users values('Sundar', 22,'M','NA', 'Anuj','9884545632',NULL)")
+        m.execute("insert into users values('Manish', 92,'M', 'cataract', 'Kajal','9924356178', NULL)")
+        m.execute("insert into users values('Kavitha', 67,'F','diabetes', 'Anjana','8876453290',NULL)")
+        m.execute("insert into users values('Geetha', 35,'F','diabetes', 'Anuj','9887543522',NULL)")
 
+sqlcreation()
 
 
         while True:
@@ -118,8 +127,7 @@ while True:
                 newuser.append('client')       
                 login[username]=newuser
 ##                break - to run program w/o sql
-
-                       
+                 
                 #'''PROFILE CREATION-USER'''  
 
                 nm=input('Enter your name ')
