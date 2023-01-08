@@ -189,11 +189,12 @@ samplelist=[['Ram', 'Indiranagar'],['Vishal','CV Raman nagar'],['Atul','Koramang
 writer.writerow(head)
 writer.writerows(samplelist)
 locfile.close()
-samplelist=[['Isha', 'Church Street'],['Ajay','Outer Ring Road'],['Abhijeet','MG Road'],['Sunita','Rajajinagar'],['Bunty','Kengeri']]
 locfile=open("Location2.csv",'w', newline='')
 writer=csv.writer(locfile)
 head=['Client Name', 'Location']
+samplelist1=[['Isha', 'Church Street'],['Ajay','Outer Ring Road'],['Abhijeet','MG Road'],['Sunita','Rajajinagar'],['Bunty','Kengeri']]
 writer.writerow(head)
+writer.writerows(samplelist1)
 locfile.close()
 
 
