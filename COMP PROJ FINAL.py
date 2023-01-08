@@ -475,10 +475,12 @@ print()
 print()
 print()
 print()
-print("You have exited the progam")
-print("Thank you for using ACMD. We hope we were able to solve your medical emergency needs. Do consider giving us a google review when you are free and healthy.")
-print("We wish to see you again!")
-print("Regards, Team ACMD")
+def conclusion():
+    print("You have exited the progam")
+    print("Thank you for using ACMD. We hope we were able to solve your medical emergency needs. Do consider giving us a google review when you are free and healthy.")
+    print("We wish to see you again!")
+    print("Regards, Team ACMD")
+conclusion()
 
             
             
