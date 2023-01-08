@@ -40,7 +40,7 @@ while True:
         '''
         
         import mysql.connector
-        db=mysql.connector.connect(host='localhost', user='root', passwd='admin123', autocommit=True)
+        db=mysql.connector.connect(host='localhost', user='root', passwd='sql123', autocommit=True)
         m=db.cursor()
 
         m.execute('drop database if exists acmd')
@@ -206,8 +206,8 @@ if login[username][1]=='driver':
             locfile=open("Location.csv", 'a+', newline='')
             location=input("Enter your current location ")
             writer=csv.writer(locfile)
-            #name=to be input from sql
-            inp=['name', location]
+            name= username
+            inp=[name, location]
             writer.writerow(inp)
             locfile.close()
             continue
