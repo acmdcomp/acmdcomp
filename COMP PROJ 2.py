@@ -399,6 +399,21 @@ if login[username][1]=='client':
                     for i in reader:
                         if i[0].lower()==dname.lower():
                             print("Here are the details of the driver's profile:")
+                            
+                            m.execute('select * from drivers where name=%s',(dname,))
+                            print(f'{"Name":25s} {"Age":25s} {"Gender":25s} {"Med eqpment available":25s} {"Linked Hosp":25s}')
+                            s=m.fetchall()
+                            for i in s:
+                                for j in i:
+                                if type(j)==int:
+                                    print(f'{str(j):25s}',end=' ')
+                                elif j=='4.8' or j=='4.2' or j=='4.5' or j=='4.4':
+                                    pass
+                                elif j==None:
+                                    print('                         ',end=' ')
+                                else:
+                                    print(f'{j:25s}',end=' ')     
+                                    
                             #from sql display driver details and to print medical equiment of ambulance from sql also
                     contact=input("Do you wish to proceed to contact the driver? Press Y or N ")
                     if contact.lower=='y':
