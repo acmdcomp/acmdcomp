@@ -61,6 +61,14 @@ def sqlcreation:
         m.execute("insert into users values('Manish', 92,'M', 'cataract', 'Kajal','9924356178', NULL)")
         m.execute("insert into users values('Kavitha', 67,'F','diabetes', 'Anjana','8876453290',NULL)")
         m.execute("insert into users values('Geetha', 35,'F','diabetes', 'Anuj','9887543522',NULL)")
+        
+        #Driver's table
+        m.execute('drop table if exists drivers')
+        m.execute("create table drivers (Name varchar(25), Age int, Gender varchar(10), Rating varchar(10), ME_available varchar(100), LHospital varchar(25))")
+        m.execute("insert into drivers values ('Raju', 32,'M', '4.8', 'bed, nebuliser', 'Manipal')")
+        m.execute("insert into drivers values ('Jeeva', 33, 'M', '4.2', 'bed, IV solution set, nebuliser', 'Rainbow')")
+        m.execute("insert into drivers values ('Sam', 30, 'M', '4.5', 'bed, vaccine, scissors', 'Cloudnine')")
+        m.execute("insert into drivers values ('Vijaya', 35, 'F', '4.4', 'bed, scissors', 'Manipal')")
 
 sqlcreation()
 
@@ -317,6 +325,18 @@ if login[username][1]=='driver':
                 cname=input("Enter the name of the client you wish to contact ")
                 for i in login:
                     if cname.lower()==login[i][0]:
+                        m.execute('select * from users where name=%s',(cname,))                            
+                        print(f'{"Name":15s} {"Age":15s} {"Gender":15s} {"Medical history":15s} {"Family Dr":15s} {"Family Dr contact":15s} {"Current disease":15s}')
+                        s=m.fetchall()
+                        for i in s:
+                            for j in i:
+                                if type(j)==int:
+                                    print(f'{str(j):15s}',end=' ')
+                                elif j==None:
+                                    print('               ',end=' ')
+                                else:
+                                    print(f'{j:15s}',end=' ')
+                            
                         #show sql profile information of THAT user
                         messagech=input("Do you wish to enter a costumised message for the client? Press Y or N ")
                         if messagech=='y':
