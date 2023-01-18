@@ -4,7 +4,7 @@
 # Location 1 - driver details
 # Location 2 - client details
 import mysql.connector
-db=mysql.connector.connect(host='localhost', user='root', passwd='mysql123', autocommit=True)
+db=mysql.connector.connect(host='localhost', user='root', passwd='sql123', autocommit=True)
 m=db.cursor()
 
 m.execute('drop database if exists acmd')
