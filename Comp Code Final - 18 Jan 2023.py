@@ -14,13 +14,13 @@ m.execute('use acmd')
 #Users table
 m.execute('drop table if exists users')
 m.execute('create table users (Name varchar(25), Age int, Gender varchar(10), Medical_history varchar(100), Family_doctor varchar(25), FD_contactinfo varchar(20), current_disease varchar(25))')
-m.execute("insert into users values('Ram', 42,'M','diabetes', 'Anuj','9884558763', 'severe leg pain')")
+m.execute("insert into users values('rita', 32,'M','diabetes', 'Anuj','9884558763', 'severe leg pain')")
 
 
 #Driver's table
 m.execute('drop table if exists drivers')
 m.execute("create table drivers (Name varchar(25), Age int, Gender varchar(10), Rating varchar(10), ME_available varchar(100), LHospital varchar(25))")
-m.execute("insert into drivers values ('Raju', 32,'M', '4.8', 'bed, nebuliser', 'Manipal')")
+m.execute("insert into drivers values ('deva', 32,'M', '4.8', 'bed, nebuliser', 'Manipal')")
 
 
 
