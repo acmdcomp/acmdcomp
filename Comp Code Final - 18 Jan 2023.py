@@ -263,25 +263,88 @@ if flag ==1:
                         else:
                             break
                     up=input("Enter the new information (If you are updating gender, enter 'M' for male and 'F' for female)")
-                    if change=='age':
-                        m.execute('update drivers set age=%s where name=%s',(up,nm))
-                        db.commit()
-                    elif change=='gender':
-                        if up=='m':
-                            up='M'
-                        elif up=='f':
-                            up='F'
-                        m.execute('update drivers set gender=%s where name=%s',(up,nm))
-                        db.commit()
-                    elif change=='medical history':
-                        m.execute('update drivers set Medical_history=%s where name=%s',(up,nm))
-                        db.commit()
-                    elif change=='medical equipment':
-                        m.execute('update drivers set ME_available=%s where name=%s',(up,nm))
-                        db.commit()
-                    elif change=='linked hospital':
-                        m.execute('update drivers set LHospital=%s where name=%s',(up,nm))
-                        db.commit()
+                  
+                    if change.lower()=='age':
+                      m.execute('update drivers set age=%s where name=%s',(up,nm))
+                      m.execute('select * from drivers where name=%s',(nm,))
+                      z=m.fetchall()
+                      for i in z:
+                          for j in i:
+                              if type(j)==int:
+                                  print(f'{str(j):25s}',end=' ')
+                              elif j=='4.8' or j=='4.2' or j=='4.5' or j=='4.4':
+                                  pass
+                              elif j==None:
+                                  print('                         ',end=' ')
+                              else:
+                                  print(f'{j:25s}',end=' ') 
+                      db.commit()
+                     elif change.lower()=='gender':
+                      if up=='m':
+                          up='M'
+                      elif up=='f':
+                          up='F'
+                      m.execute('update drivers set gender=%s where name=%s',(up,nm))
+                      m.execute('select * from drivers where name=%s',(nm,))
+                      z=m.fetchall()
+                      for i in z:
+                          for j in i:
+                              if type(j)==int:
+                                  print(f'{str(j):25s}',end=' ')
+                              elif j=='4.8' or j=='4.2' or j=='4.5' or j=='4.4':
+                                  pass
+                              elif j==None:
+                                  print('                         ',end=' ')
+                              else:
+                                  print(f'{j:25s}',end=' ') 
+                      db.commit()
+                     elif change.lower()=='medical history':
+                      m.execute('update drivers set Medical_history=%s where name=%s',(up,nm))
+                      m.execute('select * from drivers where name=%s',(nm,))
+                      z=m.fetchall()
+                      for i in z:
+                          for j in i:
+                              if type(j)==int:
+                                  print(f'{str(j):25s}',end=' ')
+                              elif j=='4.8' or j=='4.2' or j=='4.5' or j=='4.4':
+                                  pass
+                              elif j==None:
+                                  print('                         ',end=' ')
+                              else:
+                                  print(f'{j:25s}',end=' ') 
+                      db.commit()
+                     elif change.lower()=='medical equipment':
+                      m.execute('update drivers set ME_available=%s where name=%s',(up,nm))
+                      m.execute('select * from drivers where name=%s',(nm,))
+                      z=m.fetchall()
+                      for i in z:
+                          for j in i:
+                              if type(j)==int:
+                                  print(f'{str(j):25s}',end=' ')
+                              elif j=='4.8' or j=='4.2' or j=='4.5' or j=='4.4':
+                                  pass
+                              elif j==None:
+                                  print('                         ',end=' ')
+                              else:
+                                  print(f'{j:25s}',end=' ') 
+                      db.commit()
+                     elif change.lower()=='linked hospital':
+                      m.execute('update drivers set LHospital=%s where name=%s',(up,nm))
+                      m.execute('select * from drivers where name=%s',(nm,))
+                      z=m.fetchall()
+                      for i in z:
+                          for j in i:
+                              if type(j)==int:
+                                  print(f'{str(j):25s}',end=' ')
+                              elif j=='4.8' or j=='4.2' or j=='4.5' or j=='4.4':
+                                  pass
+                              elif j==None:
+                                  print('                         ',end=' ')
+                              else:
+                                  print(f'{j:25s}',end=' ') 
+                      db.commit()
+
+
                     print('Your information has been updated successfully ')
                     print()
 
@@ -481,20 +544,72 @@ if flag ==1:
                         else:
                             break
                     up=input("Enter the new information (If you are updating gender, enter 'M' for male and 'F' for female)")
-                    if change=='age':
-                        m.execute('update users set age=%s where name=%s',(up,nm))
-                    if change=='gender':
-                        if up=='m':
-                            up='M'
-                        elif up=='f':
-                            up='F'
-                        m.execute('update users set gender=%s where name=%s',(up,nm))
-                    if change=='medical history':
-                        m.execute('update users set Medical_history=%s where name=%s',(up,nm))   
-                    elif change=='family doctor':
-                        m.execute('update users set Family_doctor=%s where name=%s',(up,nm))   
-                    elif change=='family doctor contact number':
-                        m.execute('update users set FD_contactinfo=%s where name=%s',(up,nm))
+                    print(f'{"Name":15s} {"Age":15s} {"Gender":15s} {"Medical history":15s} {"Family Dr":15s} {"Family Dr contact":15s} {"Current disease":15s}')
+                    if change.lower()=='age':
+                      m.execute('update users set age=%s where name=%s',(up,nm))
+                      m.execute('select * from users where name=%s',(nm,))
+                      z=m.fetchall()
+                      for i in z:
+                          for j in i:
+                              if type(j)==int:
+                                  print(f'{str(j):15s}',end=' ')
+                              elif j==None:
+                                  print('               ',end=' ')
+                              else:
+                                  print(f'{j:15s}',end=' ')
+                    if change.lower()=='gender':
+                      if up=='m':
+                          up='M'
+                      elif up=='f':
+                          up='F'
+                      m.execute('update users set gender=%s where name=%s',(up,nm))
+                      m.execute('select * from users where name=%s',(nm,))
+                      z=m.fetchall()
+                      for i in z:
+                          for j in i:
+                              if type(j)==int:
+                                  print(f'{str(j):15s}',end=' ')
+                              elif j==None:
+                                  print('               ',end=' ')
+                              else:
+                                  print(f'{j:15s}',end=' ')
+                    if change.lower()=='medical history':
+                      m.execute('update users set Medical_history=%s where name=%s',(up,nm))
+                      m.execute('select * from users where name=%s',(nm,))
+                      z=m.fetchall()
+                      for i in z:
+                          for j in i:
+                              if type(j)==int:
+                                  print(f'{str(j):15s}',end=' ')
+                              elif j==None:
+                                  print('               ',end=' ')
+                              else:
+                                  print(f'{j:15s}',end=' ')
+                    elif change.lower()=='family doctor':
+                      m.execute('update users set Family_doctor=%s where name=%s',(up,nm))
+                      m.execute('select * from users where name=%s',(nm,))
+                      z=m.fetchall()
+                      for i in z:
+                          for j in i:
+                              if type(j)==int:
+                                  print(f'{str(j):15s}',end=' ')
+                              elif j==None:
+                                  print('               ',end=' ')
+                              else:
+                                  print(f'{j:15s}',end=' ')
+                    elif change.lower()=='family doctor contact number':
+                      m.execute('update users set FD_contactinfo=%s where name=%s',(up,nm))
+                      m.execute('select * from users where name=%s',(nm,))
+                      z=m.fetchall()
+                      for i in z:
+                          for j in i:
+                              if type(j)==int:
+                                  print(f'{str(j):15s}',end=' ')
+                              elif j==None:
+                                  print('               ',end=' ')
+                              else:
+                                  print(f'{j:15s}',end=' ')
+                        
                     print('Your information has been updated successfully ')
                     print()
 
