@@ -241,6 +241,24 @@ if flag ==1:
             print()
 
             if chasdr==1:
+                clist=[]
+                locfile=open("Location1.csv", 'r+', newline='')
+                reader=csv.reader(locfile)
+                flagname=''
+                for i in reader:
+                    if i[1]==login[username][0]:
+                        flagname='y'
+                        pass
+                    
+                    else:
+                        clist.append(i)
+        
+                if flagname=='y':
+                    locfile=open("Location1.csv", 'w+', newline='')
+                    writer=csv.writer(locfile)
+                    writer.writerows(clist)
+                    locfile.close()
+                    
                 locfile=open("Location1.csv", 'a+', newline='')
                 location=input("Enter your current location ")
                 writer=csv.writer(locfile)
@@ -249,6 +267,7 @@ if flag ==1:
                 writer.writerow(inp)
                 locfile.close()
                 continue
+
 
                
 
