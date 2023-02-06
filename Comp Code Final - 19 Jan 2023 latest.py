@@ -534,13 +534,6 @@ if flag ==1:
                                         #from sql display driver details and to print medical equiment of ambulance from sql also
                                 contact=input("Do you wish to proceed to contact the driver? Press Y or N ")
                                 if contact.lower()=='y':
-                                    #RIYA SOUND INPUT
-            ##                        from audioplayer import AudioPlayer
-                                    # "D:\Class 12 2022-23 Riya\ACMD\phone-calling-1.mp3"
-            ##                        x = AudioPlayer(r"D:/Class 12 2022-23 Riya/ACMD/phone-calling-1.mp3")
-            ##                        x.play(block=True)
-                                    
-                                    
                                     messagech=input("Do you wish to enter a customised message for the driver? Press Y or N ")
                                     if messagech.lower()=='y':
                                         message=input("Please enter your message to be sent to the driver: ")
